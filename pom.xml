@@ -26,8 +26,20 @@
                 <artifactId>maven-war-plugin</artifactId>
                 <version>3.3.1</version>
                 <configuration>
-                    <warName>ROOT</warName> <!-- Set the WAR file name to ROOT -->
+                    <!-- Set the WAR file name to ROOT -->
+                    <warName>ROOT</warName>
+                    <!-- Configure the web.xml to use index.html as the welcome file -->
                     <failOnMissingWebXml>false</failOnMissingWebXml>
+                    <webResources>
+                        <resource>
+                            <!-- Set index.html as the welcome file -->
+                            <directory>${project.basedir}/WebContent</directory>
+                            <includes>
+                                <include>index.html</include>
+                            </includes>
+                            <filtering>false</filtering>
+                        </resource>
+                    </webResources>
                 </configuration>
             </plugin>
         </plugins>
